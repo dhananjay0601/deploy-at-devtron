@@ -44,8 +44,9 @@ public class MyPlugin extends Builder implements SimpleBuildStep {
                     listener.getLogger().println("start-point-for-deployment");
 
                     // Generic Webhook URL
-                    String webhookUrl = "http://20.163.244.230:31757/orchestrator/webhook/ext-ci/1";
-                    sendPayload("dhananjay0106/jenkins_ci_pipeline:14", webhookUrl, listener, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFQSS1UT0tFTjpkaGFuYW5qYXkwMTA2L2plbmtpbnNfY2lfcGlwZWxpbmU6MTQiLCJpc3MiOiJhcGlUb2tlbklzc3VlciJ9.Gi1mecKaBq9f6_K0z33fpvcc22fR4dX3nBIn6GM7-2s");
+//                    String webhookUrl = "http://20.163.244.230:31757/orchestrator/webhook/ext-ci/1";
+//                    sendPayload("dhananjay0106/jenkins_ci_pipeline:14", webhookUrl, listener, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFQSS1UT0tFTjpkaGFuYW5qYXkwMTA2L2plbmtpbnNfY2lfcGlwZWxpbmU6MTQiLCJpc3MiOiJhcGlUb2tlbklzc3VlciJ9.Gi1mecKaBq9f6_K0z33fpvcc22fR4dX3nBIn6GM7-2s");
+
                 } catch (IOException | InterruptedException e) {
                     listener.getLogger().println("Failed to fetch Git details: " + e.getMessage());
                 }
