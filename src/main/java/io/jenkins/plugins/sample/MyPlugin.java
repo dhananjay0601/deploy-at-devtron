@@ -10,14 +10,11 @@ import hudson.model.AbstractProject;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.Builder;
-import java.io.IOException;
+import java.io.*;
 import jenkins.tasks.SimpleBuildStep;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 
 public class MyPlugin extends Builder implements SimpleBuildStep {
 
@@ -58,7 +55,7 @@ public class MyPlugin extends Builder implements SimpleBuildStep {
 
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, EnvVars env, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
-        listener.getLogger().println("Hello " + "World " + "!!" );
+//        listener.getLogger().println("Hello " + "World " + "!!" );
 
         // Generic Webhook URL
         String webhookUrl = "http://20.163.244.230:31757/orchestrator/webhook/ext-ci/1";
@@ -70,8 +67,8 @@ public class MyPlugin extends Builder implements SimpleBuildStep {
 
         String requestBody = "{\"dockerImage\":\"dhananjay0106/jenkins_ci_pipeline:v15\",\"digest\":\"test1\",\"dataSource\":\"ext\",\"materialType\":\"git\"}";
         performCurlRequest(webhookUrl, apiToken, requestBody, listener);
-    }
 
+    }
 
     public static void performCurlRequest(String url, String apiToken, String requestBody, TaskListener listener) throws IOException {
         // Create the connection
