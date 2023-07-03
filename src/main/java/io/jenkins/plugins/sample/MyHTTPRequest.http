@@ -1,0 +1,67 @@
+# curl --location --request POST
+#'http://20.124.28.71:30870/orchestrator/webhook/ext-ci/1'
+#--header 'Content-Type: application/json'
+#--header 'api-token: {token}'
+#--data-raw '{
+#    "dockerImage": "",
+#    "digest": "test1",
+#    "dataSource": "ext",
+#    "materialType": "git"
+#}'
+POST http://20.163.244.230:31757/orchestrator/webhook/ext-ci/1
+api-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFQSS1UT0tFTjpkaGFuYW5qYXkwMTA2L2plbmtpbnNfY2lfcGlwZWxpbmU6djEzIiwiaXNzIjoiYXBpVG9rZW5Jc3N1ZXIifQ.3ZedYA8Yincjr48if8gKob8unnCfFZrXCMoXSttxqFA
+Content-Type: application/json
+
+{
+    "dockerImage": "dhananjay0106/jenkins_ci_pipeline:v13",
+    "digest": "test1",
+    "dataSource": "ext",
+    "materialType": "git"
+}
+
+###
+curl 'http://20.163.244.230:31757/orchestrator/webhook/ext-ci/1' \
+  -H 'Accept: application/json' \
+  -H 'Accept-Language: en-GB,en-US;q=0.9,en;q=0.8' \
+  -H 'Access-Control-Allow-Credentials: true' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: application/json' \
+  -H 'Cookie: argocd.token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFQSS1UT0tFTjpkaGFuYW5qYXkwMTA2L2plbmtpbnNfY2lfcGlwZWxpbmU6djEzIiwiaXNzIjoiYXBpVG9rZW5Jc3N1ZXIifQ.3ZedYA8Yincjr48if8gKob8unnCfFZrXCMoXSttxqFA
+' \
+  -H 'Origin: http://20.163.244.230:31757' \
+  -H 'Pragma: no-cache' \
+  -H 'Referer: http://20.163.244.230:31757/dashboard/app/48/edit/workflow/48/webhook/1' \
+  -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36' \
+  -H 'api-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFQSS1UT0tFTjpkaGFuYW5qYXkwMTA2L2plbmtpbnNfY2lfcGlwZWxpbmU6djEzIiwiaXNzIjoiYXBpVG9rZW5Jc3N1ZXIifQ.3ZedYA8Yincjr48if8gKob8unnCfFZrXCMoXSttxqFA
+' \
+  --data-raw '{"dockerImage":"dhananjay0106/jenkins_ci_pipeline:v13","digest":"test1","dataSource":"ext","materialType":"git"}' \
+--compressed \
+--insecure
+
+
+###
+
+# curl --location --request POST
+#'http://20.124.28.71:30870/orchestrator/webhook/ext-ci/1'
+#--header 'Content-Type: application/json'
+#--header 'api-token: {token}'
+#--data-raw '{
+#    "dockerImage": "",
+#    "digest": "test1",
+#    "dataSource": "ext",
+#    "materialType": "git"
+#}'
+POST http://20.124.28.71:30870/orchestrator/webhook/ext-ci/1
+api-token: {token}
+Content-Type: application/json
+
+{
+  "dockerImage": "",
+  "digest": "test1",
+  "dataSource": "ext",
+  "materialType": "git"
+}
+
+###
+
