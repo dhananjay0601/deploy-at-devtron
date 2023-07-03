@@ -55,7 +55,6 @@ public class MyPlugin extends Builder implements SimpleBuildStep {
 
     @Override
     public void perform(Run<?, ?> run, FilePath workspace, EnvVars env, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
-//        listener.getLogger().println("Hello " + "World " + "!!" );
 
         // Generic Webhook URL
         String webhookUrl = "http://20.163.244.230:31757/orchestrator/webhook/ext-ci/1";
