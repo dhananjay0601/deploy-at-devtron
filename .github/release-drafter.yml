@@ -1,0 +1,2 @@
+_extends: .github
+tag-template: devtron-05-$NEXT_MINOR_VERSION
