@@ -79,7 +79,7 @@ public class MyPlugin extends Builder implements SimpleBuildStep {
                 outputStream.flush();
             }
 
-            //Write the payload
+            // Write the payload
             connection.getOutputStream().write(requestBody.getBytes());
             connection.getOutputStream().flush();
 
