@@ -1,17 +1,17 @@
-//import hudson.model.AbstractBuild;
-//import hudson.model.Run;
-//import hudson.model.TaskListener;
-//import org.junit.Before;
-//import org.junit.Test;
+// import hudson.model.AbstractBuild;
+// import hudson.model.Run;
+// import hudson.model.TaskListener;
+// import org.junit.Before;
+// import org.junit.Test;
 //
-//import java.io.ByteArrayOutputStream;
-//import java.io.OutputStream;
-//import java.net.HttpURLConnection;
-//import java.net.URL;
+// import java.io.ByteArrayOutputStream;
+// import java.io.OutputStream;
+// import java.net.HttpURLConnection;
+// import java.net.URL;
 //
-//import static org.junit.Assert.assertEquals;
+// import static org.junit.Assert.assertEquals;
 //
-//public class MyPluginTest {
+// public class MyPluginTest {
 //
 //    private AbstractBuild<?, ?> build;
 //    private TaskListener listener;
@@ -98,4 +98,4 @@
 //        String requestBodySent = new String(outputStream.toByteArray());
 //        assertEquals(requestBody, requestBodySent);
 //    }
-//}
+// }

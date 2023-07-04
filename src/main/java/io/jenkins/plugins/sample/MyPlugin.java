@@ -25,6 +25,7 @@ public class MyPlugin extends Builder implements SimpleBuildStep {
                 AbstractProject<?, ?> project = build.getProject();
 
                 try {
+
                     // Get Git details from the build environment
                     String repositoryUrl = build.getEnvironment(listener).get("GIT_URL");
                     String branch = build.getEnvironment(listener).get("GIT_BRANCH");
