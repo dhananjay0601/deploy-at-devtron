@@ -1,9 +1,6 @@
 package io.jenkins.plugins.sample;
 
-import hudson.Launcher;
-import hudson.EnvVars;
 import hudson.Extension;
-import hudson.FilePath;
 import hudson.model.AbstractBuild;
 import hudson.model.listeners.RunListener;
 import hudson.model.AbstractProject;
@@ -44,8 +41,9 @@ public class MyPlugin extends Builder implements SimpleBuildStep {
                     listener.getLogger().println("start-point-for-deployment");
 
                     // Generic Webhook URL
-//                    String webhookUrl = "http://20.163.244.230:31757/orchestrator/webhook/ext-ci/1";
-//                    sendPayload("dhananjay0106/jenkins_ci_pipeline:14", webhookUrl, listener, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFQSS1UT0tFTjpkaGFuYW5qYXkwMTA2L2plbmtpbnNfY2lfcGlwZWxpbmU6MTQiLCJpc3MiOiJhcGlUb2tlbklzc3VlciJ9.Gi1mecKaBq9f6_K0z33fpvcc22fR4dX3nBIn6GM7-2s");
+                    String webhookUrl = "http://20.163.244.230:31757/orchestrator/webhook/ext-ci/1";
+
+                    sendPayload(webhookUrl, listener, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFQSS1UT0tFTjpkaGFuYW5qYXkwMTA2L2plbmtpbnNfY2lfcGlwZWxpbmU6MTQiLCJpc3MiOiJhcGlUb2tlbklzc3VlciJ9.Gi1mecKaBq9f6_K0z33fpvcc22fR4dX3nBIn6GM7-2s");
 
                 } catch (IOException | InterruptedException e) {
                     listener.getLogger().println("Failed to fetch Git details: " + e.getMessage());
@@ -54,16 +52,7 @@ public class MyPlugin extends Builder implements SimpleBuildStep {
         }
     }
 
-    @Override
-    public void perform(Run<?, ?> run, FilePath workspace, EnvVars env, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
-
-        // Generic Webhook URL
-        String webhookUrl = "http://20.163.244.230:31757/orchestrator/webhook/ext-ci/1";
-
-        sendPayload("dhananjay0106/jenkins_ci_pipeline:15", webhookUrl, listener, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IkFQSS1UT0tFTjpkaGFuYW5qYXkwMTA2L2plbmtpbnNfY2lfcGlwZWxpbmU6djEzIiwiaXNzIjoiYXBpVG9rZW5Jc3N1ZXIifQ.3ZedYA8Yincjr48if8gKob8unnCfFZrXCMoXSttxqFA");
-    }
-
-    public static void sendPayload(String imageName, String webhookUrl, TaskListener listener, String apiToken) throws IOException {
+    public static void sendPayload(String webhookUrl, TaskListener listener, String apiToken) throws IOException {
 
         String requestBody = "{\"dockerImage\":\"dhananjay0106/jenkins_ci_pipeline:v15\",\"digest\":\"test1\",\"dataSource\":\"ext\",\"materialType\":\"git\"}";
         performCurlRequest(webhookUrl, apiToken, requestBody, listener);
@@ -71,6 +60,7 @@ public class MyPlugin extends Builder implements SimpleBuildStep {
     }
 
     public static void performCurlRequest(String url, String apiToken, String requestBody, TaskListener listener) throws IOException {
+
         // Create the connection
         HttpURLConnection connection = null;
         try {
@@ -81,6 +71,7 @@ public class MyPlugin extends Builder implements SimpleBuildStep {
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("api-token", apiToken);
             listener.getLogger().println(connection);
+
             // Write the request body to the connection's output stream
             try (OutputStream outputStream = connection.getOutputStream()) {
                 byte[] requestBodyBytes = requestBody.getBytes(StandardCharsets.UTF_8);
@@ -110,6 +101,7 @@ public class MyPlugin extends Builder implements SimpleBuildStep {
                 listener.getLogger().println("Failed to send cURL request. Response code: " + responseCode);
             }
         } finally {
+
             // Close the connection
             if (connection != null) {
                 connection.disconnect();
