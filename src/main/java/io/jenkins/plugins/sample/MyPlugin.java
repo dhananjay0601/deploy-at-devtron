@@ -96,7 +96,7 @@ public class MyPlugin extends Builder implements SimpleBuildStep {
                     while ((line = reader.readLine()) != null) {
                         response.append(line);
                     }
-                    listener.getLogger().println("Response: " + response.toString());
+                    listener.getLogger().println("Response: " + response);
                 }
             } else {
                 listener.getLogger().println("Failed to send cURL request. Response code: " + responseCode);
